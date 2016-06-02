@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Home</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/index_style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="#">V.J.T.I.</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="example">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li><a href="about.html">About Us</a></li>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Buy</a></li>
+            <li><a href="#">Sell</a></li>
+            <li><a href="#">Ask Seniors</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">FAQs</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Suggestions</a></li>
+          </ul>
+        </li>
+       <li>
+          <button type="button" class="btn btn-primary navbar-btn nav-justified" data-toggle="modal" data-target="#login">
+          Login
+          </button>
+            <div class="modal fade" id="login">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+                  <h1 class="modal-title text-center"><strong>Login</strong></h1>
+                  <div class="modal-body">
+                    <form action="#" method="post">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username" autofocus/>
+                      </div>
+                        <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" />
+                        </div>
+                        <p><a href="#forgotpassword">Forgot password?</a></p>
+                      <div class="checkbox">
+                        <label for="remember">
+                        <input name="remember" id="remember" type="checkbox" checked>Remember me</label>
+                      </div>
+                      <button type="submit" class="btn btn-success">Sign In</button>
+                    </form>
+                    <p></p>
+                    New User?
+                    <p><button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signup">Sign Up</button></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </li>
+        <li>
+          <button type="button" class="btn btn-success navbar-btn nav-justified" data-toggle="modal" data-target="#signup">
+          Sign Up
+          </button>
+            <div class="modal fade" id="signup">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+                  <h1 class="modal-title text-center"><strong>Sign Up</strong></h1>
+                  <div class="modal-body">
+                    <form action="#" method="post">
+                      <div class="form-group">
+                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                        <input type="text" id="usrname"class="form-control" placeholder="Username" infocus/>
+                      </div>
+                        <div class="form-group">
+                        <label for="password"><span class="glyphicon glyphicon-eye-close"></span> Password</label>
+                        <input type="password" id="password"class="form-control" placeholder="Password" />
+                        </div>
+                        <div class="form-group">
+                        <label for="repassword"><span class="glyphicon glyphicon-eye-close"></span> Enter Password Again</label>
+                        <input type="password" id="repassword" class="form-control" placeholder="Password" />
+                        </div>
+                        <div class="form-inline">
+                          <label for="name" class="col-sm-3">Your name</label>
+                          <input type="text" id="name" class="form-control" placeholder="First Name">
+                          <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                        <div class="form-inline">
+                          <label for="reg" class="col-sm-3">Registration ID</label>
+                          <input type="text" id="reg" class="form-control" placeholder="Registration ID">
+                        </div>
+                        <div class="form-inline">
+                          <label for="email" class="col-sm-3">Email Id</label>
+                          <input type="text" id="email" class="form-control" placeholder="Email Id">
+                        </div>
+                        <div class="form-inline">
+                          <label for="number" class="col-sm-3">Mobile No.</label>
+                          <input type="text" id="email" class="form-control" placeholder="Mobile No.">
+                        </div>
+                      <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+    </div>
+  </div>
+</nav>
+        <div class="jumbotron">
+          <div class="container">
+            <h1>SOME CONTENT</h1>
+            <h3>POSTS</h3>
+          </div>
+        </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+   
+  </body>
+</html>
