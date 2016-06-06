@@ -29,7 +29,6 @@
     <![endif]-->
   </head>
   <body>
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -87,10 +86,10 @@
                              <div class="content">
                                 
                                 <div class="form loginBox">
-                                    <form method="post" action="/login" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                    <input class="btn btn-default btn-login" type="button" value="Login" >
+                                    <form method="post" action="login.php" accept-charset="UTF-8">
+                                    <input id="name" class="form-control" type="text" placeholder="Username" name="name">
+                                    <input id="pwd" class="form-control" type="password" placeholder="Password" name="pwd">
+                                    <input class="btn btn-default btn-login" type="submit" value="Login" >
                                     </form>
                                 </div>
                              </div>
@@ -98,11 +97,12 @@
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
-                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="button" value="Create account" >
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="signup.php" accept-charset="UTF-8">
+                                <input id="n" class="form-control" type="text" placeholder="Username" name="n">
+                                <input type="text" class="form-control" id="id" placeholder="Registration ID" name="id">
+                                <input id="p" class="form-control" type="password" placeholder="Password" name="p">
+                                <input id="rp" class="form-control" type="password" placeholder="Repeat Password" name="rp">
+                                <input class="btn btn-default btn-register" type="submit" value="Create account" >
                                 </form>
                                 </div>
                             </div>
@@ -123,13 +123,33 @@
               </div>
           </div>
       </div>
-        <div class="jumbotron">
-          <div class="container">
-            <h1>SOME CONTENT</h1>
-            <h3>POSTS</h3>
-          </div>
-        </div>
+      <div class="container">
+        <?php require('includes/config.php'); ?>
+        <?php
+    try {
+      
+        $pages = new Paginator('6','p');
+        $stmt = $db->query('SELECT postID FROM list');
+        $pages->set_total($stmt->rowCount());
+        $stmt = $db->query('SELECT postID, title, postdesc, date FROM list ORDER BY date DESC '.$pages->get_limit());
+        while($row = $stmt->fetch()){
+            
+            echo '<div>';
+                echo '<h1><a href="viewpost.php?id='.$row['postID'].'">'.$row['title'].'</a></h1>';
+                echo '<p>Posted on '.date('jS M Y H:i:s', strtotime($row['date'])).'</p>';
+                echo '<p>'.$row['postdesc'].'</p>';                
+                echo '<p><a href="viewpost.php?id='.$row['postID'].'">Read More</a></p>';                
+            echo '</div>';
 
+        }
+      
+      echo '<nav>'.$pages->page_links().'</nav>';
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+?>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
